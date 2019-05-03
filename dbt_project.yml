@@ -19,3 +19,6 @@ models:
       materialized: table
       staging:
         materialized: view
+
+on-run-end:
+  - "{{get_run_audit(results, flags, target)}}"

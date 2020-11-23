@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: dbt_bq_example
-    database: wam-bam-258119
+    database: big-demo-dreams
     schema: dbt_bq_example
 
     freshness:

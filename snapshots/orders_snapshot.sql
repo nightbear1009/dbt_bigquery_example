@@ -13,7 +13,7 @@
     {{
         config
 (
-          target_schema='dbt_bq_example',
+          target_schema='dbt_test',
           unique_key='id',
           
           strategy='check',
@@ -22,6 +22,6 @@
     }}
 
 -- Pro-Tip: Use sources in snapshots!
-select * from {{ source('dbt_bq_example','raw_orders') }}
+select * from {{ source('dbt_test','raw_orders') }}
     
 {% endsnapshot %}

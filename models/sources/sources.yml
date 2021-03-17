@@ -1,9 +1,9 @@
 version: 2
 
 sources:
-  - name: dbt_bq_example
+  - name: dbt_test
     database: "{{ env_var('PROJECT_ID', 'dvc-demo-297316') }}" 
-    schema: dbt_bq_example
+    schema: dbt_test
 
     freshness:
       warn_after: { count: 10, period: day } # 1 day old from time you run the source snapshot command
@@ -13,7 +13,9 @@ sources:
 
     tables:
       - name: raw_customers
-        freshness: null # no freshness tests
+        freshness: 
+          warn_after: { count: 1, period: minute } # 1 day old from time you run the source snapshot command
+          error_after: { count: 5, period: minute } # 2 days old from time you run the source snapshot command
       - name: raw_orders
       - name: raw_payments
         freshness: null # no freshness tests
